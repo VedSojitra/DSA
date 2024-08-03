@@ -31,4 +31,38 @@ int main(){
     cout << ptr3 << endl;
     // ptr3 + 1 will not increase the value of num3. It will only increase the address
     // ptr3 + 1 i.e pointer will go to next int. Means 4 byte will increase in case of int. 8 byte in double and etc.
+
+
+    int arr[10] = {23,144,41,67};
+
+    // cout << "Address of first memory block " << arr << endl;
+    // cout << "Address of first memory block " << &arr << endl;
+    // cout << "Address of first memory block " << &arr[0] << endl;
+
+    // cout << *arr << endl;
+    // cout << *arr + 1 << endl;
+    // cout << *(arr + 1) << endl;
+    // cout << *(arr) + 1 << endl;
+
+    // cout << sizeof(arr) << endl;
+    // cout << sizeof(*arr) << endl;
+    // cout << sizeof(&arr) << endl;
+
+    // int *ptr = &arr[0];
+    // cout << sizeof(ptr) << endl;
+    // cout << sizeof(*ptr) << endl;
+    // cout << sizeof(&ptr) << endl;
+
+    // cout << &arr << endl;
+    // cout << &ptr << endl;
+
+    char ch[6] = "abcde";
+    cout << ch << endl;
+    char *c = &ch[0];
+    cout << c << endl;
+
+    char temp = 'z';
+    char *t = &temp;
+    cout << t << endl;
+
 }
