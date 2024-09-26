@@ -83,4 +83,25 @@ int main(){
     // or instead of dot(.) you can also write with arrow(->) symbol.
     cout << "level is " << b->level << endl;
     cout << "health is "<< b->getHealth() << endl;
+
+
+
+    
+
+    // when a object is created a default constructor is called
+    cout << "hey" << endl;
+    Hero obj;
+    Hero *obj1 = new Hero;
+    cout << "hey" << endl;
+
+    // when you create a parameterized constructor, your default constructor which was created automatically will get deleted;
+    Hero temp(10);
+    temp.print();
+
+    Hero temp1(22,'C');
+    temp1.print();
+
+    // copy constructor
+    Hero temp2(temp1);
+    temp2.print();
 }
