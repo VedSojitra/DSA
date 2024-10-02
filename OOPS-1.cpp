@@ -64,6 +64,26 @@ class B {
 };
 
 
+
+// Run time(Overriding):-
+class Animal {
+    public:
+    void speak() {
+        cout << "Speaking "<< endl;
+    }
+};
+
+class Dog: public Animal {
+
+    public:
+    void speak() {
+        cout << "Barking " << endl;
+    }
+
+};
+
+
+
 int main(){
     // Overloading
     A obj;
@@ -78,5 +98,11 @@ int main(){
 
     obj1 + obj2;
     obj1();
+
+
+  
+    // Overriding
+    Dog obj3;
+    obj3.speak();
 
 }
