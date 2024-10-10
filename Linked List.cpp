@@ -62,6 +62,33 @@ void InserAtPosition(Node* &head,Node* &tail,  int position, int d){
     temp -> next = nodeToInsert;
 }
 
+void deleteNode(int position, Node* &head){
+    // deleting first node
+    if(position == 1){
+        Node* temp = head;
+        head = head -> next;
+
+        // memory free of first node
+        temp -> next = NULL;
+        delete temp;
+    }
+    else{
+        // deleting any middle or last node
+        Node* curr = head;
+        Node* prev = NULL;
+
+        int cnt = 1;
+        while(cnt < position){
+            prev = curr;
+            curr = curr -> next;
+            cnt++;
+        }
+        prev -> next = curr -> next;
+        curr -> next = NULL;
+        delete curr;
+    }
+}
+
 
 void printList(Node* &head){
     // create new pointer for traversing
@@ -102,6 +129,11 @@ int main(){
 
     cout << "head:- " << head -> data << endl;
     cout << "tail:- " << tail -> data << endl;
+
+
+    deleteNode(2,head);
+    printList(head);
+
 
 
     return 0;
