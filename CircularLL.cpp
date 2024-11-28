@@ -63,6 +63,40 @@ void print(Node* tail){
     cout << endl;
 }
 
+void deleteNode(Node* &tail, int value){
+
+    // empty list
+    if(tail == NULL){
+        cout << "List is empty " << endl;
+        return;
+    }
+    else{
+        // assuming that value is present in Linked List
+        Node* prev = tail;
+        Node* curr = prev -> next;
+
+        while(curr -> data != value){
+            prev = curr;
+            curr = curr -> next;
+        }
+
+        prev -> next = curr -> next;
+
+        // for 1 node 
+        if(curr == prev){
+            tail = NULL;
+        }
+
+        else if(tail == curr){
+            tail = prev;
+        }
+
+        curr -> next = NULL;
+        delete curr;
+    }
+}
+
+
 int main(){
     Node* tail = NULL;
     
@@ -83,6 +117,9 @@ int main(){
 
     insertNode(tail, 3, 4);
     print(tail);
-  
+
+    deleteNode(tail,5);
+    print(tail);
+
     return 0;
 }
