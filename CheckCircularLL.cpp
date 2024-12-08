@@ -11,6 +11,16 @@ class Node{
         this -> data = d;
         this -> next = NULL;
     }
+
+    //destructor
+    ~Node(){
+        int value = this -> data;
+        if(this->next != NULL){
+            delete next;
+            next = NULL;
+        }
+        cout << "memory is free for node with data " << value << endl; 
+    }
 };
 
 void insertNode(Node* &tail, int element, int d){
