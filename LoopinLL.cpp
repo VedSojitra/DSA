@@ -52,6 +52,60 @@ bool detectLoop(Node* head){
     return false;
 }
 
+Node* floydDetectloop(Node* head){
+    if(head == NULL)
+    return NULL;
+
+    Node* slow = head;
+    Node* fast = head;
+
+    while(slow != NULL && fast != NULL){
+        
+        fast = fast -> next;
+        if(fast != NULL){
+            fast = fast -> next;
+        }
+
+        slow = slow -> next;
+
+        if(slow == fast){
+            return slow;
+        }
+    }
+    return NULL;
+}
+
+
+Node* StartingNode(Node* head){
+    if(head == NULL){
+        return NULL;
+    }
+
+    Node* intersection = floydDetectloop(head);
+    Node* slow = head;
+
+    while(slow != intersection){
+        slow = slow -> next;
+        intersection = intersection -> next;
+    }
+    return slow;
+}
+
+
+Node* removeLoop(Node* head){
+    if(head == NULL){
+        return NULL;
+    }
+    Node* startofLoop = StartingNode(head);
+    Node* temp = startofLoop;
+
+    while(temp -> next != startofLoop){
+        temp = temp -> next;
+    }
+    temp -> next = NULL;
+
+}
+
 int main(){
     Node * node1 = new Node(10);
     Node* head = node1;
@@ -71,4 +125,17 @@ int main(){
         cout << "Cycle is present" << endl;
     else
         cout << "Cycle is not present" << endl;
+
+
+    if(floydDetectloop(head) != NULL)
+        cout << "Cycle is present" << endl;
+    else
+        cout << "Cycle is not present" << endl;
+
+    Node* starting = StartingNode(head);
+    cout << "Loop start at " << starting -> data << endl;
+
+    removeLoop(head);
+    printList(head);
+    
 }
