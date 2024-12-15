@@ -43,9 +43,15 @@ class Stack{
             return -1;
         }
     }
+
+    bool isEmpty(){
+        if(top == -1) return true;
+        else return false;
+    }
 };
 
 int main(){
+    
    Stack st (5);
 
    st.push(10);
@@ -62,4 +68,6 @@ int main(){
 
    st.pop();
 
+   if(st.isEmpty()) cout << "Stack is empty" << endl;
+   else cout << "Stack is not empty" << endl; 
  }
