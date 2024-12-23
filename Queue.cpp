@@ -25,6 +25,22 @@ class Queue{
         if(rear == size - 1) return true;
         else return false;
     }
+
+    int getFront(){
+        if(isEmpty()){
+            cout << "Queue is empty" << endl;
+            return -1;
+        }
+        return arr[front];
+    }
+
+    int getRear(){
+        if(isEmpty()){
+            cout << "Queue is empty" << endl;
+            return -1;
+        }
+        return arr[rear];
+    }
 };
 
 int main() {
