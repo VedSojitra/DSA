@@ -42,6 +42,7 @@ class Queue{
         return arr[rear];
     }
 
+
     void enqueue(int val){
         if(isFull()){
             cout << "Queue is Full" << endl;
@@ -53,6 +54,7 @@ class Queue{
         rear++;
         arr[rear] = val;
     }
+
     int dequeue(){
         if(isEmpty()){
             cout << "Queue is empty" << endl;
@@ -66,13 +68,27 @@ class Queue{
 
         return ans;
     }
+
+    void display(){
+        if(isEmpty()){
+            cout << "Queue is Empty" << endl;
+            return;
+        }
+
+        cout << "Queue: ";
+        for(int i = front; i <= rear; i++){
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
 };
 
 int main() {
     Queue q (5);
-    if(q.isEmpty())
-        cout << "Queue is Empty" << endl;
 
+    if(q.isEmpty())
+    cout << "Queue is Empty" << endl;
+    q.dequeue();
     // Enqueueing
     q.enqueue(1);
     q.enqueue(2);
@@ -84,6 +100,31 @@ int main() {
     cout << "Front element: " << q.getFront() << endl;
     cout << "Rear element: " << q.getRear() << endl;
 
-    
+    q.display();
+
+    // Enqueueing more elements
+    q.enqueue(4);
+    q.enqueue(5);
+
+    // Displaying the updated queue
+    q.display();
+
+    // Enqueueing one more element to demonstrate overflow condition
+    q.enqueue(6);
+
+    // Dequeueing elements
+    cout << "\nDequeueing elements:" << endl;
+    cout << "Dequeued element: " << q.dequeue() << endl;
+    cout << "Dequeued element: " << q.dequeue() << endl;
+
+    // Displaying status of the queue after dequeueing
+    cout << "\nAfter Dequeueing:" << endl;
+
+    cout << "Front element: " << q.getFront() << endl;
+    cout << "Rear element: " << q.getRear() << endl;
+
+    q.display();
+
     return 0;
+
 }
