@@ -53,6 +53,19 @@ class Queue{
         rear++;
         arr[rear] = val;
     }
+    int dequeue(){
+        if(isEmpty()){
+            cout << "Queue is empty" << endl;
+            return -1;
+        }
+        
+        int ans = arr[front];
+        front++;
+
+        if(isEmpty()) front = rear = -1;
+
+        return ans;
+    }
 };
 
 int main() {
