@@ -26,6 +26,7 @@ class CircularQueue{
         else return false;
     }
 
+
     void enqueue(int value) {
         if (isFull()) {
             cout << "Circular Queue is full!" << endl;
@@ -52,4 +53,44 @@ class CircularQueue{
             front = (front + 1) % size;
         }
     }
+
+    // Function to display the front element
+    void peek() {
+        if (isEmpty()) {
+            cout << "Circular Queue is empty!" << endl;
+            return;
+        }
+        cout << "Front element: " << arr[front] << endl;
+    }
+    
+};
+
+
+int main() {
+    CircularQueue cq(5);  // Circular Queue of size 5
+
+    cq.enqueue(10);
+    cq.enqueue(20);
+    cq.enqueue(30);
+    cq.enqueue(40);
+    cq.enqueue(50);
+
+    cq.peek();    // Display front element
+    cq.dequeue(); // Remove front element
+    cq.peek();    // Display new front element
+
+    cq.enqueue(60); // Try to enqueue another element after dequeuing
+    cq.enqueue(70);
+    cq.peek();
+
+    cq.dequeue();
+    cq.dequeue();
+    cq.dequeue();
+    cq.dequeue();
+    cq.peek();
+
+    cq.dequeue();
+    cq.dequeue();
+
+    return 0;
 }
