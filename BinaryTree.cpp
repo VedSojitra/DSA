@@ -98,5 +98,20 @@ int main(){
     // creating a tree
     root = buildTree(root);
 
+    // 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
+    cout << "Printing in level order traversal format:- " << endl;
+    levelOrderTraversal(root);
+
+    cout << "Inorder traversal is: ";
+    inorder(root);
+
+    cout << endl;
+    cout << "Preorder traversal is: ";
+    preorder(root);
+
+    cout << endl;
+    cout << "Postorder traversal is: ";
+    postorder(root);
+
     return 0;
 }
