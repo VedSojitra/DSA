@@ -71,3 +71,28 @@ void inorder(Node* root){
     cout << root -> data << " ";
     inorder(root -> right);
 }
+
+void takeInput(Node* &root){
+    int data;
+    cin >> data;
+
+    while( data != -1){
+        root = insertIntoBst(root, data);
+        cin >> data;
+    }
+}
+
+int main(){
+
+    // 50 20 70 10 30 90 110 -1
+    Node* root = NULL;
+
+    cout << "Enter data to create BST:- " << endl;
+    takeInput(root);
+
+    cout << "Printing the BST" << endl;
+    levelOrderTraversal(root);
+
+    cout << "Inorder traversal is: ";
+    inorder(root);
+}
