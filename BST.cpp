@@ -32,3 +32,42 @@ Node* insertIntoBst(Node* root, int d){
     }
     return root;
 }
+
+void levelOrderTraversal(Node* root){
+    queue<Node*> q;
+    q.push(root);
+    q.push(NULL);
+
+    while(!q.empty()){
+        Node* temp = q.front();
+        q.pop();
+
+        if(temp == NULL){
+            // one level is traversed
+            cout << endl;
+            if(!q.empty()){
+                // queue still has some child nodes
+                q.push(NULL);
+            }
+        }
+        else{
+            cout << temp -> data << " ";
+            if(temp -> left){
+                q.push(temp -> left);
+            }
+            if(temp -> right){
+                q.push(temp -> right);
+            }
+        }
+    }
+}
+
+void inorder(Node* root){
+    if(root == NULL){
+        return ;
+    }
+
+    inorder(root -> left);
+    cout << root -> data << " ";
+    inorder(root -> right);
+}
